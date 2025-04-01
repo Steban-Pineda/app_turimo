@@ -156,5 +156,31 @@ Conexion conector = new Conexion();
 		}
 	
 	}
+	public void delete( int idpromotores) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblpromotores WHERE idpromotores = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setInt(1, idpromotores);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No. " + idpromotores + "?" );
+			
+			
+			if (resp == JOptionPane.OK_OPTION) {
+				//ejecutar la trx
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro No." + idpromotores + " eliminado" );
+			
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	
+	}
 }

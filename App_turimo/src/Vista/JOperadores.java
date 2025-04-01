@@ -14,6 +14,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JOperadores extends JFrame {
 
@@ -27,7 +30,8 @@ public class JOperadores extends JFrame {
 	private JTextField TxtNumerodocumento;
 	private JTextField TxtTipodocumento;
 	private JTextField txtidtransporte;
-
+	private JTextField txtidoperadores;
+	Operadores ope = new Operadores();
 	/**
 	 * Launch the application.
 	 */
@@ -49,7 +53,7 @@ public class JOperadores extends JFrame {
 	 */
 	public JOperadores() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 351);
+		setBounds(100, 100, 532, 492);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -123,7 +127,7 @@ public class JOperadores extends JFrame {
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			Operadores ope = new Operadores();getWarningString();
+			
 			ope.create(TxtTipodocumento.getText(),TxtNumerodocumento.getText(), TxtNombres.getText(), TxtApellidos.getText(),TxtTelefono.getText(),TxtCorreopersonal.getText(),TxtDireccion.getText(),Integer.parseInt(txtidtransporte.getText()));
 			
 			}
@@ -139,6 +143,25 @@ public class JOperadores extends JFrame {
 		txtidtransporte.setColumns(10);
 		txtidtransporte.setBounds(231, 202, 86, 20);
 		contentPane.add(txtidtransporte);
+		
+		JLabel lblNewLabel_2 = new JLabel("idoperadores");
+		lblNewLabel_2.setBounds(380, 14, 108, 14);
+		contentPane.add(lblNewLabel_2);
+		
+		txtidoperadores = new JTextField();
+		txtidoperadores.setColumns(10);
+		txtidoperadores.setBounds(380, 36, 86, 20);
+		contentPane.add(txtidoperadores);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ope.delete(Integer.parseInt(txtidoperadores.getText()));
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btnNewButton.setBounds(390, 60, 56, 57);
+		contentPane.add(btnNewButton);
 	}
 
 }

@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.ImageIcon;
 
 public class JAgencia extends JFrame {
 
@@ -28,7 +29,8 @@ public class JAgencia extends JFrame {
 	private JTextField TxtCorreo;
 	private JTextField TxtWeb;
 	private JTextField txtidcompañia;
-
+	private JTextField txtidagencia;
+	Agencia age = new Agencia();
 	/**
 	 * Launch the application.
 	 */
@@ -58,18 +60,18 @@ public class JAgencia extends JFrame {
 		contentPane.setLayout(null);
 		
 		TxtDireccion = new JTextField();
-		TxtDireccion.setBounds(288, 95, 86, 20);
+		TxtDireccion.setBounds(204, 126, 86, 20);
 		contentPane.add(TxtDireccion);
 		TxtDireccion.setColumns(10);
 		
 		TxtNombre = new JTextField();
-		TxtNombre.setBounds(288, 64, 86, 20);
+		TxtNombre.setBounds(204, 95, 86, 20);
 		contentPane.add(TxtNombre);
 		TxtNombre.setColumns(10);
 		
 		TxtTelefono = new JTextField();
 		TxtTelefono.setColumns(10);
-		TxtTelefono.setBounds(288, 126, 86, 20);
+		TxtTelefono.setBounds(204, 157, 86, 20);
 		contentPane.add(TxtTelefono);
 		
 		JLabel lblNewLabel = new JLabel("Nombre");
@@ -80,54 +82,76 @@ public class JAgencia extends JFrame {
 			
 			}
 		});
-		lblNewLabel.setBounds(34, 70, 46, 14);
+		lblNewLabel.setBounds(34, 98, 46, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Direccion");
-		lblNewLabel_1.setBounds(34, 101, 46, 14);
+		lblNewLabel_1.setBounds(34, 129, 46, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Correo electronico");
-		lblNewLabel_2.setBounds(34, 156, 106, 28);
+		lblNewLabel_2.setBounds(34, 184, 106, 28);
 		contentPane.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Telefono");
-		lblNewLabel_2_1.setBounds(34, 132, 46, 14);
+		lblNewLabel_2_1.setBounds(34, 160, 46, 14);
 		contentPane.add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_2_1_1 = new JLabel("Web");
-		lblNewLabel_2_1_1.setBounds(34, 195, 46, 14);
+		lblNewLabel_2_1_1.setBounds(34, 223, 46, 14);
 		contentPane.add(lblNewLabel_2_1_1);
 		
 		TxtCorreo = new JTextField();
 		TxtCorreo.setColumns(10);
-		TxtCorreo.setBounds(288, 157, 86, 20);
+		TxtCorreo.setBounds(204, 188, 86, 20);
 		contentPane.add(TxtCorreo);
 		
 		TxtWeb = new JTextField();
 		TxtWeb.setColumns(10);
-		TxtWeb.setBounds(288, 189, 86, 20);
+		TxtWeb.setBounds(204, 220, 86, 20);
 		contentPane.add(TxtWeb);
 		
 		JButton btnGuardar = new JButton("Guardar");
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Agencia age = new Agencia();
+				
 				age.create(TxtNombre.getText(),TxtDireccion.getText(),TxtTelefono.getText(),TxtCorreo.getText(),TxtWeb.getText(), Integer.parseInt(txtidcompañia.getText()));
 				
 			}
 		});
-		btnGuardar.setBounds(153, 281, 89, 23);
+		btnGuardar.setBounds(155, 344, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("idcompañia");
-		lblNewLabel_2_1_1_1.setBounds(34, 232, 86, 14);
+		lblNewLabel_2_1_1_1.setBounds(34, 260, 86, 14);
 		contentPane.add(lblNewLabel_2_1_1_1);
 		
 		txtidcompañia = new JTextField();
 		txtidcompañia.setColumns(10);
-		txtidcompañia.setBounds(288, 229, 86, 20);
+		txtidcompañia.setBounds(204, 260, 86, 20);
 		contentPane.add(txtidcompañia);
+		
+		JLabel lblAgencia = new JLabel("agencia");
+		lblAgencia.setBounds(34, 56, 46, 14);
+		contentPane.add(lblAgencia);
+		
+		txtidagencia = new JTextField();
+		txtidagencia.setColumns(10);
+		txtidagencia.setBounds(204, 53, 86, 20);
+		contentPane.add(txtidagencia);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				age.delete(Integer.parseInt(txtidagencia.getText()));
+				
+				
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btnNewButton.setBounds(327, 34, 57, 59);
+		contentPane.add(btnNewButton);
 	}
 }

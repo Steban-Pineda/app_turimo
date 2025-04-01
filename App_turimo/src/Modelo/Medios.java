@@ -76,6 +76,33 @@ public class Medios {
 		}
 		
 	}
+	public void delete( int idmedio) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblmedios WHERE idmedio = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setInt(1, idmedio);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No. " + idmedio + "?" );
+			
+			
+			if (resp == JOptionPane.OK_OPTION) {
+				//ejecutar la trx
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro No." + idmedio + " eliminado" );
+			
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	
+	}
 	
 	
 }

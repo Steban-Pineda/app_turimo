@@ -112,7 +112,33 @@ public class Compañia {
 		}
 	
 	}
+	public void delete( int idcompañia) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblcompañia WHERE idcompañia = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setInt(1, idcompañia);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No. " + idcompañia + "?" );
+			
+			
+			if (resp == JOptionPane.OK_OPTION) {
+				//ejecutar la trx
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro No." + idcompañia + "eliminado" );
+			
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 	
+	}
 	
 
 }

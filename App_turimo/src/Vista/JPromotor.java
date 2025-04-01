@@ -13,6 +13,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JPromotor extends JFrame {
 
@@ -27,7 +30,8 @@ public class JPromotor extends JFrame {
 	private JTextField TxtCorreocorp;
 	private JTextField TxtDireccion;
 	private JTextField TxtFechanacimiento;
-
+	private JTextField txtidpromotores;
+	Promotor pro = new Promotor();
 	/**
 	 * Launch the application.
 	 */
@@ -49,7 +53,7 @@ public class JPromotor extends JFrame {
 	 */
 	public JPromotor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 474);
+		setBounds(100, 100, 536, 474);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -142,13 +146,32 @@ public class JPromotor extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				Promotor pro = new Promotor();
+			
 				pro.create(TxtTipodocumento.getText(), TxtNumerodocumento.getText(),TxtNombres.getText(),TxtApellidos.getText(),TxtTelefono.getText(),TxtCorreopersonal.getText(),TxtCorreocorp.getText(),TxtDireccion.getText(),TxtFechanacimiento.getText());
 				
 			}
 		});
 		btnGuardar.setBounds(151, 349, 89, 23);
 		contentPane.add(btnGuardar);
+		
+		JLabel lblIdpromotores = new JLabel("idpromotores");
+		lblIdpromotores.setBounds(382, 55, 108, 14);
+		contentPane.add(lblIdpromotores);
+		
+		txtidpromotores = new JTextField();
+		txtidpromotores.setColumns(10);
+		txtidpromotores.setBounds(382, 77, 86, 20);
+		contentPane.add(txtidpromotores);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pro.delete(Integer.parseInt(txtidpromotores.getText()));
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btnNewButton.setBounds(403, 105, 48, 52);
+		contentPane.add(btnNewButton);
 	}
 
 }

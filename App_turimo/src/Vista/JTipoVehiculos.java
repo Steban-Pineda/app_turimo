@@ -13,6 +13,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JTipoVehiculos extends JFrame {
 
@@ -20,7 +23,10 @@ public class JTipoVehiculos extends JFrame {
 	private JPanel contentPane;
 	private JTextField TxtNombre;
 	private JTextField TxtObservacion;
-
+	private JLabel lblIdtipotransporte;
+	private JTextField txtidtipotransporte;
+	private JButton btnNewButton;
+	TipoVehiculos tvh = new TipoVehiculos();
 	/**
 	 * Launch the application.
 	 */
@@ -42,7 +48,7 @@ public class JTipoVehiculos extends JFrame {
 	 */
 	public JTipoVehiculos() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 552, 357);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -72,11 +78,34 @@ public class JTipoVehiculos extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				TipoVehiculos tvh = new TipoVehiculos();
+			
 				tvh.create(TxtNombre.getText(),TxtObservacion.getText());
+				
+				
+				TxtNombre.setText("");
+				TxtObservacion.setText("");
 			}
 		});
-		btnGuardar.setBounds(150, 178, 89, 23);
+		btnGuardar.setBounds(212, 183, 89, 23);
 		contentPane.add(btnGuardar);
+		
+		lblIdtipotransporte = new JLabel("idtipotransporte");
+		lblIdtipotransporte.setBounds(404, 51, 108, 14);
+		contentPane.add(lblIdtipotransporte);
+		
+		txtidtipotransporte = new JTextField();
+		txtidtipotransporte.setColumns(10);
+		txtidtipotransporte.setBounds(404, 76, 86, 20);
+		contentPane.add(txtidtipotransporte);
+		
+		btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tvh.delete(Integer.parseInt(txtidtipotransporte.getText()));
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btnNewButton.setBounds(414, 107, 54, 57);
+		contentPane.add(btnNewButton);
 	}
 }

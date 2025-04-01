@@ -192,5 +192,31 @@ Conexion conector = new Conexion();
 		}
 	
 	}
-
+	public void delete( int códigoventa) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "DELETE FROM tblpaquete WHERE códigoventa = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setInt(1, códigoventa);
+			
+			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No. " + códigoventa + "?" );
+			
+			
+			if (resp == JOptionPane.OK_OPTION) {
+				//ejecutar la trx
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "Registro No." + códigoventa + " eliminado" );
+			
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	
+	}
 }

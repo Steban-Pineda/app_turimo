@@ -15,6 +15,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JVehiculos extends JFrame {
 
@@ -28,7 +31,8 @@ public class JVehiculos extends JFrame {
 	private JTextField TxtNumeromotor;
 	private JTextField TxtCategoria;
 	private JTextField txtidtipotransporte;
-
+	private JTextField txtidtransporte;
+	Vehiculos veh = new Vehiculos();
 	/**
 	 * Launch the application.
 	 */
@@ -50,7 +54,7 @@ public class JVehiculos extends JFrame {
 	 */
 	public JVehiculos() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 543);
+		setBounds(100, 100, 550, 543);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -124,7 +128,7 @@ public class JVehiculos extends JFrame {
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Vehiculos veh = new Vehiculos();
+			
 				veh.create(TxtPlaca.getText(),Integer.parseInt(TxtCapacidad.getText()),TxtModelo.getText(),TxtMarca.getText(),TxtEstadovehiculo.getText(),Integer.parseInt(TxtNumeromotor.getText()), TxtCategoria.getText(),Integer.parseInt(txtidtipotransporte.getText()));
 			}
 		});
@@ -139,6 +143,27 @@ public class JVehiculos extends JFrame {
 		txtidtipotransporte.setColumns(10);
 		txtidtipotransporte.setBounds(248, 375, 86, 20);
 		contentPane.add(txtidtipotransporte);
+		
+		JLabel lblNewLabel_1_5 = new JLabel("idtransporte");
+		lblNewLabel_1_5.setBounds(424, 77, 46, 14);
+		contentPane.add(lblNewLabel_1_5);
+		
+		txtidtransporte = new JTextField();
+		txtidtransporte.setColumns(10);
+		txtidtransporte.setBounds(397, 102, 86, 20);
+		contentPane.add(txtidtransporte);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				veh.delete(Integer.parseInt(txtidtransporte.getText()));
+			}
+			
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btnNewButton.setBounds(407, 133, 60, 57);
+		contentPane.add(btnNewButton);
 	}
 
 }

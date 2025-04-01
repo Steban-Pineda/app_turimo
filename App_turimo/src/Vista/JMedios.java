@@ -13,6 +13,9 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JMedios extends JFrame {
 
@@ -21,7 +24,10 @@ public class JMedios extends JFrame {
 	private JTextField TxtNombres;
 	private JTextField TxtObservaciones;
 	private JTextField txtidtipomedio;
-
+	private JLabel lblNewLabel;
+	private JTextField txtidmedio;
+	private JButton btnNewButton;
+	Medios med = new Medios();
 	/**
 	 * Launch the application.
 	 */
@@ -43,7 +49,7 @@ public class JMedios extends JFrame {
 	 */
 	public JMedios() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 393);
+		setBounds(100, 100, 552, 393);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -72,7 +78,7 @@ public class JMedios extends JFrame {
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				Medios med = new Medios();
+				
 				med.create(TxtNombres.getText(),TxtObservaciones.getText(), Integer.parseInt(txtidtipomedio.getText()));
 				
 			}
@@ -88,6 +94,25 @@ public class JMedios extends JFrame {
 		txtidtipomedio.setColumns(10);
 		txtidtipomedio.setBounds(236, 177, 86, 20);
 		contentPane.add(txtidtipomedio);
+		
+		lblNewLabel = new JLabel("idmedio");
+		lblNewLabel.setBounds(420, 63, 46, 14);
+		contentPane.add(lblNewLabel);
+		
+		txtidmedio = new JTextField();
+		txtidmedio.setColumns(10);
+		txtidmedio.setBounds(397, 94, 86, 20);
+		contentPane.add(txtidmedio);
+		
+		btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				med.delete(Integer.parseInt(txtidmedio.getText()));
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btnNewButton.setBounds(420, 137, 46, 57);
+		contentPane.add(btnNewButton);
 	}
 
 }

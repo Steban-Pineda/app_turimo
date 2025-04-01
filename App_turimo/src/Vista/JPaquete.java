@@ -13,6 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JPaquete extends JFrame {
 
@@ -31,7 +34,9 @@ public class JPaquete extends JFrame {
 	private JTextField txtidagencia;
 	private JTextField txtidmedio;
 	private JTextField txtidtransporte;
-
+	private JTextField txtcódigoventa;
+	Paquete paq = new Paquete();
+	private JLabel lblNewLabel_2;
 	/**
 	 * Launch the application.
 	 */
@@ -53,7 +58,7 @@ public class JPaquete extends JFrame {
 	 */
 	public JPaquete() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 592);
+		setBounds(100, 100, 557, 592);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -64,7 +69,7 @@ public class JPaquete extends JFrame {
 		btnGuardar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-			Paquete paq = new Paquete();
+		
 			paq.create(Integer.parseInt(TxtIddestino.getText()), Integer.parseInt(TxtIdorigen.getText()),TxtPrecio.getText(),TxtFechaventa.getText(),TxtHoraventa.getText(),TxtFechaejecucion.getText(),TxtHorasalida.getText(),TxtObservaciones.getText(),
 					Integer.parseInt(txtidpromotores.getText()),Integer.parseInt(txtidcliente.getText()),Integer.parseInt(txtidagencia.getText()),Integer.parseInt(txtidmedio.getText()),Integer.parseInt(txtidtransporte.getText()));
 			
@@ -189,5 +194,24 @@ public class JPaquete extends JFrame {
 		txtidtransporte.setColumns(10);
 		txtidtransporte.setBounds(247, 430, 86, 20);
 		contentPane.add(txtidtransporte);
+		
+		txtcódigoventa = new JTextField();
+		txtcódigoventa.setColumns(10);
+		txtcódigoventa.setBounds(414, 100, 86, 20);
+		contentPane.add(txtcódigoventa);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				paq.delete(Integer.parseInt(txtcódigoventa.getText()));;
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btnNewButton.setBounds(440, 124, 45, 63);
+		contentPane.add(btnNewButton);
+		
+		lblNewLabel_2 = new JLabel("codigo de venta");
+		lblNewLabel_2.setBounds(414, 78, 86, 14);
+		contentPane.add(lblNewLabel_2);
 	}
 }
