@@ -18,6 +18,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class JAgencia extends JFrame {
 
@@ -52,7 +53,7 @@ public class JAgencia extends JFrame {
 	 */
 	public JAgencia() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 450);
+		setBounds(100, 100, 492, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -133,16 +134,17 @@ public class JAgencia extends JFrame {
 		contentPane.add(txtidcompañia);
 		
 		JLabel lblAgencia = new JLabel("agencia");
-		lblAgencia.setBounds(34, 56, 46, 14);
+		lblAgencia.setBounds(379, 70, 46, 14);
 		contentPane.add(lblAgencia);
 		
 		txtidagencia = new JTextField();
 		txtidagencia.setColumns(10);
-		txtidagencia.setBounds(204, 53, 86, 20);
+		txtidagencia.setBounds(353, 95, 86, 20);
+		
 		contentPane.add(txtidagencia);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addMouseListener(new MouseAdapter() {
+		JButton btndelete = new JButton("");
+		btndelete.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				age.delete(Integer.parseInt(txtidagencia.getText()));
@@ -150,8 +152,14 @@ public class JAgencia extends JFrame {
 				
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btnNewButton.setBounds(327, 34, 57, 59);
-		contentPane.add(btnNewButton);
+		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btndelete.setBounds(367, 118, 57, 59);
+		btndelete.setContentAreaFilled(false);
+		contentPane.add(btndelete);
+		
+		JLabel lblNewLabel_3 = new JLabel("Gestion de agencias");
+		lblNewLabel_3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
+		lblNewLabel_3.setBounds(176, 28, 171, 20);
+		contentPane.add(lblNewLabel_3);
 	}
 }

@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class JClientes extends JFrame {
 
@@ -55,7 +56,7 @@ public class JClientes extends JFrame {
 	 */
 	public JClientes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 594);
+		setBounds(100, 100, 541, 594);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -173,23 +174,29 @@ public class JClientes extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_2 = new JLabel("Id cliente");
-		lblNewLabel_2.setBounds(55, 47, 108, 14);
+		lblNewLabel_2.setBounds(417, 74, 108, 14);
 		contentPane.add(lblNewLabel_2);
 		
 		txtidcliente = new JTextField();
 		txtidcliente.setColumns(10);
-		txtidcliente.setBounds(149, 44, 86, 20);
+		txtidcliente.setBounds(407, 99, 86, 20);
 		contentPane.add(txtidcliente);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btndelete = new JButton("");
+		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cli.delete(Integer.parseInt(txtidcliente.getText()));
 			}
 		});
-		btnNewButton.setBounds(268, 26, 38, 51);
-		contentPane.add(btnNewButton);
+		btndelete.setBounds(431, 127, 38, 51);
+		btndelete.setContentAreaFilled(false);
+		contentPane.add(btndelete);
+		
+		JLabel lblNewLabel_3 = new JLabel("Gestion de clientes");
+		lblNewLabel_3.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(203, 37, 181, 20);
+		contentPane.add(lblNewLabel_3);
 	}
 
 }

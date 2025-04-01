@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class JTipomedios extends JFrame {
 
@@ -26,8 +27,9 @@ public class JTipomedios extends JFrame {
 	private JButton btnGuardar;
 	private JLabel lblNewLabel;
 	private JTextField txtidtipomedio;
-	private JButton btnNewButton;
+	private JButton btndelete;
 	Tipomedios cr = new Tipomedios();
+	private JLabel lblNewLabel_3;
 	/**
 	 * Launch the application.
 	 */
@@ -100,15 +102,21 @@ public class JTipomedios extends JFrame {
 		txtidtipomedio.setBounds(417, 109, 86, 20);
 		contentPane.add(txtidtipomedio);
 		
-		btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
+		btndelete = new JButton("");
+		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cr.delete(Integer.parseInt(txtidtipomedio.getText()));
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btnNewButton.setBounds(439, 145, 51, 47);
-		contentPane.add(btnNewButton);
+		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btndelete.setBounds(439, 145, 51, 47);
+		btndelete.setContentAreaFilled(false);
+		contentPane.add(btndelete);
+		
+		lblNewLabel_3 = new JLabel("Gestion  tipo de medios");
+		lblNewLabel_3.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
+		lblNewLabel_3.setBounds(178, 25, 190, 20);
+		contentPane.add(lblNewLabel_3);
 	}
 
 }

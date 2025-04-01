@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class JPromotor extends JFrame {
 
@@ -61,84 +62,84 @@ public class JPromotor extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Tipo de documento");
-		lblNewLabel.setBounds(78, 55, 108, 14);
+		lblNewLabel.setBounds(78, 91, 108, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Numero de documento");
-		lblNewLabel_1.setBounds(78, 80, 108, 14);
+		lblNewLabel_1.setBounds(78, 116, 108, 14);
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Nombres ");
-		lblNewLabel_1_1.setBounds(78, 105, 108, 14);
+		lblNewLabel_1_1.setBounds(78, 141, 108, 14);
 		contentPane.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_1_1 = new JLabel(" Apellidos");
-		lblNewLabel_1_1_1.setBounds(78, 130, 108, 14);
+		lblNewLabel_1_1_1.setBounds(78, 166, 108, 14);
 		contentPane.add(lblNewLabel_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("Telefono");
-		lblNewLabel_1_1_1_1.setBounds(78, 159, 108, 14);
+		lblNewLabel_1_1_1_1.setBounds(78, 195, 108, 14);
 		contentPane.add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("Correo personal");
-		lblNewLabel_1_1_1_1_1.setBounds(78, 187, 108, 14);
+		lblNewLabel_1_1_1_1_1.setBounds(78, 223, 108, 14);
 		contentPane.add(lblNewLabel_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("Correo corp");
-		lblNewLabel_1_1_1_1_1_1.setBounds(78, 218, 108, 14);
+		lblNewLabel_1_1_1_1_1_1.setBounds(78, 254, 108, 14);
 		contentPane.add(lblNewLabel_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("Direccion");
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(78, 243, 108, 14);
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(78, 279, 108, 14);
 		contentPane.add(lblNewLabel_1_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_2 = new JLabel("Fecha nacimiento");
-		lblNewLabel_1_1_1_1_1_1_2.setBounds(78, 268, 108, 14);
+		lblNewLabel_1_1_1_1_1_1_2.setBounds(78, 304, 108, 14);
 		contentPane.add(lblNewLabel_1_1_1_1_1_1_2);
 		
 		TxtTipodocumento = new JTextField();
-		TxtTipodocumento.setBounds(246, 52, 86, 20);
+		TxtTipodocumento.setBounds(246, 88, 86, 20);
 		contentPane.add(TxtTipodocumento);
 		TxtTipodocumento.setColumns(10);
 		
 		TxtNumerodocumento = new JTextField();
 		TxtNumerodocumento.setColumns(10);
-		TxtNumerodocumento.setBounds(246, 77, 86, 20);
+		TxtNumerodocumento.setBounds(246, 113, 86, 20);
 		contentPane.add(TxtNumerodocumento);
 		
 		TxtNombres = new JTextField();
 		TxtNombres.setColumns(10);
-		TxtNombres.setBounds(246, 102, 86, 20);
+		TxtNombres.setBounds(246, 138, 86, 20);
 		contentPane.add(TxtNombres);
 		
 		TxtApellidos = new JTextField();
 		TxtApellidos.setColumns(10);
-		TxtApellidos.setBounds(246, 127, 86, 20);
+		TxtApellidos.setBounds(246, 163, 86, 20);
 		contentPane.add(TxtApellidos);
 		
 		TxtTelefono = new JTextField();
 		TxtTelefono.setColumns(10);
-		TxtTelefono.setBounds(246, 156, 86, 20);
+		TxtTelefono.setBounds(246, 192, 86, 20);
 		contentPane.add(TxtTelefono);
 		
 		TxtCorreopersonal = new JTextField();
 		TxtCorreopersonal.setColumns(10);
-		TxtCorreopersonal.setBounds(246, 184, 86, 20);
+		TxtCorreopersonal.setBounds(246, 220, 86, 20);
 		contentPane.add(TxtCorreopersonal);
 		
 		TxtCorreocorp = new JTextField();
 		TxtCorreocorp.setColumns(10);
-		TxtCorreocorp.setBounds(246, 215, 86, 20);
+		TxtCorreocorp.setBounds(246, 251, 86, 20);
 		contentPane.add(TxtCorreocorp);
 		
 		TxtDireccion = new JTextField();
 		TxtDireccion.setColumns(10);
-		TxtDireccion.setBounds(246, 240, 86, 20);
+		TxtDireccion.setBounds(246, 276, 86, 20);
 		contentPane.add(TxtDireccion);
 		
 		TxtFechanacimiento = new JTextField();
 		TxtFechanacimiento.setColumns(10);
-		TxtFechanacimiento.setBounds(246, 265, 86, 20);
+		TxtFechanacimiento.setBounds(246, 301, 86, 20);
 		contentPane.add(TxtFechanacimiento);
 		
 		JButton btnGuardar = new JButton("Guardar");
@@ -155,23 +156,29 @@ public class JPromotor extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		JLabel lblIdpromotores = new JLabel("idpromotores");
-		lblIdpromotores.setBounds(382, 55, 108, 14);
+		lblIdpromotores.setBounds(383, 116, 108, 14);
 		contentPane.add(lblIdpromotores);
 		
 		txtidpromotores = new JTextField();
 		txtidpromotores.setColumns(10);
-		txtidpromotores.setBounds(382, 77, 86, 20);
+		txtidpromotores.setBounds(383, 135, 86, 20);
 		contentPane.add(txtidpromotores);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btndelete = new JButton("");
+		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pro.delete(Integer.parseInt(txtidpromotores.getText()));
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btnNewButton.setBounds(403, 105, 48, 52);
-		contentPane.add(btnNewButton);
+		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btndelete.setBounds(405, 163, 48, 52);
+		btndelete.setContentAreaFilled(false);
+		contentPane.add(btndelete);
+		
+		JLabel lblNewLabel_2 = new JLabel("Gestion de promotores");
+		lblNewLabel_2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(178, 30, 190, 20);
+		contentPane.add(lblNewLabel_2);
 	}
 
 }

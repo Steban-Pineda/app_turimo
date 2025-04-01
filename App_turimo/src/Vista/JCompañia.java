@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class JCompañia extends JFrame {
 
@@ -29,6 +30,7 @@ public class JCompañia extends JFrame {
 	private JLabel lblNewLabel;
 	private JTextField txtidcompañia;
 	Compañia com = new Compañia();
+	private JLabel lblNewLabel_2;
 	/**
 	 * Launch the application.
 	 */
@@ -50,7 +52,7 @@ public class JCompañia extends JFrame {
 	 */
 	public JCompañia() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 563, 430);
+		setBounds(100, 100, 495, 430);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -114,23 +116,29 @@ public class JCompañia extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel = new JLabel("idcompañia");
-		lblNewLabel.setBounds(436, 45, 68, 14);
+		lblNewLabel.setBounds(395, 130, 68, 14);
 		contentPane.add(lblNewLabel);
 		
 		txtidcompañia = new JTextField();
 		txtidcompañia.setColumns(10);
-		txtidcompañia.setBounds(418, 70, 86, 20);
+		txtidcompañia.setBounds(371, 152, 86, 20);
 		contentPane.add(txtidcompañia);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btndelete = new JButton("");
+		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				com.delete(Integer.parseInt(txtidcompañia.getText()));
 				
 			}
 		});
-		btnNewButton.setBounds(436, 102, 46, 49);
-		contentPane.add(btnNewButton);
+		btndelete.setBounds(395, 186, 46, 49);
+		btndelete.setContentAreaFilled(false);
+		contentPane.add(btndelete);
+		
+		lblNewLabel_2 = new JLabel("Gestion de compañia");
+		lblNewLabel_2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(171, 45, 190, 20);
+		contentPane.add(lblNewLabel_2);
 	}
 }

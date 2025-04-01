@@ -18,6 +18,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class JVehiculos extends JFrame {
 
@@ -153,17 +154,23 @@ public class JVehiculos extends JFrame {
 		txtidtransporte.setBounds(397, 102, 86, 20);
 		contentPane.add(txtidtransporte);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btndelete = new JButton("");
+		btndelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
 				veh.delete(Integer.parseInt(txtidtransporte.getText()));
 			}
 			
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btnNewButton.setBounds(407, 133, 60, 57);
-		contentPane.add(btnNewButton);
+		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
+		btndelete.setBounds(407, 133, 60, 57);
+		btndelete.setContentAreaFilled(false);
+		contentPane.add(btndelete);
+		
+		JLabel lblNewLabel_2 = new JLabel("Gestion de vehiculos");
+		lblNewLabel_2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(168, 11, 190, 20);
+		contentPane.add(lblNewLabel_2);
 	}
 
 }
