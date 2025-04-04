@@ -2,9 +2,11 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controlador.Conexion;
 
@@ -219,4 +221,47 @@ Conexion conector = new Conexion();
 		}
 	
 	}
+
+	public void readOne( int códigoventa, JTextField iddestino, JTextField idorigen, JTextField precio, JTextField fechaventa, JTextField horaventa, JTextField fechaejecución, JTextField horasalida, JTextField observaciones, JTextField idpromotores, JTextField idcliente, JTextField idagencia, JTextField idmedio, JTextField idtransporte) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblpaquete WHERE códigoventa = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setInt(1, códigoventa);
+			ResultSet rs = pst.executeQuery();
+		
+			
+			
+		
+			
+			while (rs.next()) {
+				iddestino.setText(rs.getString(2));
+				idorigen.setText(rs.getString(3));
+				precio.setText(rs.getString(4));
+				fechaventa.setText(rs.getString(5));
+				horaventa.setText(rs.getString(6));
+				fechaejecución.setText(rs.getString(7));
+				horasalida.setText(rs.getString(8));
+				observaciones.setText(rs.getString(9));
+				idpromotores.setText(rs.getString(10));
+				idcliente.setText(rs.getString(11));
+				idagencia.setText(rs.getString(12));
+				idmedio.setText(rs.getString(13));
+				idtransporte.setText(rs.getString(14));
+				
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
+	
+	
 }

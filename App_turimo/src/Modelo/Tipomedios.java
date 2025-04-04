@@ -2,9 +2,14 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.xdevapi.Result;
 
 import Controlador.Conexion;
 
@@ -101,6 +106,37 @@ public void delete( int idtipomedio) {
 	}
 
 }
+
+public void readOne( int idtipomedio, JTextField nombres, JTextField observacion) {
+	Connection dbConnection = null;
+	PreparedStatement pst = null;
+	
+	String script = "SELECT * FROM tbltipomedios WHERE idtipomedio = ?";
+	
+	try {
+		dbConnection = conector.conectarBD();
+		pst = dbConnection.prepareStatement(script);
+		//parametrizar los campos
+		pst.setInt(1, idtipomedio);
+		ResultSet rs = pst.executeQuery();
+	
+		
+		
+	
+		
+		while (rs.next()) {
+			nombres.setText(rs.getString(2));
+			observacion.setText(rs.getString(3));
+			
+		}
+		
+	} catch (SQLException e) {
+		System.out.println(e.getMessage());
+	}
+
+}
+
+
 }
 	
 	

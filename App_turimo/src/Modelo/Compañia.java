@@ -2,9 +2,11 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controlador.Conexion;
 
@@ -140,5 +142,35 @@ public class Compañia {
 	
 	}
 	
+	public void readOne( int idcompañia, JTextField nombre, JTextField direccion, JTextField numerotelefonico, JTextField correoelectronico, JTextField web ) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblcompañia WHERE idcompañia = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setInt(1, idcompañia);
+			ResultSet rs = pst.executeQuery();
+		
+			
+			
+		
+			
+			while (rs.next()) {
+				nombre.setText(rs.getString(2));
+				direccion.setText(rs.getString(3));
+				numerotelefonico.setText(rs.getString(4));
+				correoelectronico.setText(rs.getString(5));
+				web.setText(rs.getString(6));
+				
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
 
+	}
 }

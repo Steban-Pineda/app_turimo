@@ -33,6 +33,7 @@ public class JPromotor extends JFrame {
 	private JTextField TxtFechanacimiento;
 	private JTextField txtidpromotores;
 	Promotor pro = new Promotor();
+	private JTextField txtconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -54,7 +55,7 @@ public class JPromotor extends JFrame {
 	 */
 	public JPromotor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 536, 474);
+		setBounds(100, 100, 536, 554);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -152,7 +153,7 @@ public class JPromotor extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(151, 349, 89, 23);
+		btnGuardar.setBounds(196, 408, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblIdpromotores = new JLabel("idpromotores");
@@ -179,6 +180,26 @@ public class JPromotor extends JFrame {
 		lblNewLabel_2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(178, 30, 190, 20);
 		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_1_1_1_1_1_1_2_1 = new JLabel("Consultar");
+		lblNewLabel_1_1_1_1_1_1_2_1.setBounds(78, 352, 108, 14);
+		contentPane.add(lblNewLabel_1_1_1_1_1_1_2_1);
+		
+		txtconsultar = new JTextField();
+		txtconsultar.setColumns(10);
+		txtconsultar.setBounds(246, 349, 86, 20);
+		contentPane.add(txtconsultar);
+		
+		JButton btnconsultar = new JButton("");
+		btnconsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pro.readOne(Integer.parseInt(txtconsultar.getText()), TxtTipodocumento, TxtNumerodocumento, TxtNombres, TxtApellidos, TxtTelefono, TxtCorreopersonal, TxtCorreocorp, TxtDireccion, TxtFechanacimiento);
+			}
+		});
+		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btnconsultar.setBounds(342, 352, 48, 23);
+		btnconsultar.setContentAreaFilled(false);
+		contentPane.add(btnconsultar);
 	}
 
 }

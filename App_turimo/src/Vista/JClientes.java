@@ -35,6 +35,7 @@ public class JClientes extends JFrame {
 	private JTextField TxtDireccion;
 	private JTextField txtidcliente;
 	Clientes cli = new Clientes ();
+	private JTextField txtconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -170,7 +171,7 @@ public class JClientes extends JFrame {
 				cli.create(TxtTipodocumento.getText(), TxtNumerodocumento.getText(), TxtNombres.getText(), TxtApellidos.getText(), TxtEPS.getText(), TxtAlergias.getText(),TxtFechanacimiento.getText(),TxtEstadocivil.getText(),TxtTelefono.getText(),TxtCorreo.getText(),TxtDireccion.getText());
 			}
 		});
-		btnGuardar.setBounds(149, 481, 89, 23);
+		btnGuardar.setBounds(150, 493, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_2 = new JLabel("Id cliente");
@@ -197,6 +198,26 @@ public class JClientes extends JFrame {
 		lblNewLabel_3.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
 		lblNewLabel_3.setBounds(203, 37, 181, 20);
 		contentPane.add(lblNewLabel_3);
+		
+		JLabel txt = new JLabel("consultar");
+		txt.setBounds(55, 440, 108, 14);
+		contentPane.add(txt);
+		
+		txtconsultar = new JTextField();
+		txtconsultar.setColumns(10);
+		txtconsultar.setBounds(235, 437, 86, 20);
+		contentPane.add(txtconsultar);
+		
+		JButton btnconsultar = new JButton("");
+		btnconsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cli.readOne(Integer.parseInt(txtconsultar.getText()), TxtTipodocumento, TxtNumerodocumento, TxtNombres, TxtApellidos, TxtEPS, TxtAlergias, TxtFechanacimiento, TxtEstadocivil, TxtTelefono, TxtCorreo, TxtDireccion);
+			}
+		});
+		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btnconsultar.setBounds(331, 440, 48, 23);
+		btnconsultar.setContentAreaFilled(false);
+		contentPane.add(btnconsultar);
 	}
 
 }

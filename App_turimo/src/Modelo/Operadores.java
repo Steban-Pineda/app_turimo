@@ -2,9 +2,11 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controlador.Conexion;
 
@@ -159,5 +161,41 @@ Conexion conector = new Conexion();
 			System.out.println(e.getMessage());
 		}
 	
+	}
+	
+	
+	public void readOne( int idoperadores, JTextField tipodocumento, JTextField numerodocumento, JTextField nombres, JTextField apellidos, JTextField telefono, JTextField correo, JTextField direccion, JTextField idtransporte ) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tbloperadores WHERE idoperadores = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setInt(1, idoperadores);
+			ResultSet rs = pst.executeQuery();
+		
+			
+			
+		
+			
+			while (rs.next()) {
+				tipodocumento.setText(rs.getString(2));
+				numerodocumento.setText(rs.getString(3));
+				nombres.setText(rs.getString(4));
+				apellidos.setText(rs.getString(5));
+				telefono.setText(rs.getString(6));
+				correo.setText(rs.getString(7));
+				direccion.setText(rs.getString(8));
+				idtransporte.setText(rs.getString(9));
+				
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
 	}
 }

@@ -2,9 +2,11 @@ package Modelo;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import Controlador.Conexion;
 
@@ -170,6 +172,40 @@ public class Vehiculos {
 		}
 	
 	}
-	
+	public void readOne( int idtransporte, JTextField placa, JTextField capacidad, JTextField modelo, JTextField marca, JTextField estadovehiculo,JTextField idtipotransporte,JTextField numero_motor,JTextField categoria ) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblvehiculos WHERE idtransporte = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setInt(1, idtransporte);
+			ResultSet rs = pst.executeQuery();
+		
+			
+			
+		
+			
+			while (rs.next()) {
+				placa.setText(rs.getString(2));
+				capacidad.setText(rs.getString(3));
+				modelo.setText(rs.getString(4));
+				marca.setText(rs.getString(5));
+				estadovehiculo.setText(rs.getString(6));
+				idtipotransporte.setText(rs.getString(7));
+				numero_motor.setText(rs.getString(8));
+				categoria.setText(rs.getString(9));
+				
+			}
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+
 
 }

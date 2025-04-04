@@ -30,6 +30,7 @@ public class JTipomedios extends JFrame {
 	private JButton btndelete;
 	Tipomedios cr = new Tipomedios();
 	private JLabel lblNewLabel_3;
+	private JTextField txtconsulta;
 	/**
 	 * Launch the application.
 	 */
@@ -51,7 +52,7 @@ public class JTipomedios extends JFrame {
 	 */
 	public JTipomedios() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 565, 300);
+		setBounds(100, 100, 565, 327);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -90,16 +91,16 @@ public class JTipomedios extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(136, 187, 89, 23);
+		btnGuardar.setBounds(146, 241, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel = new JLabel("idtipomedio");
-		lblNewLabel.setBounds(439, 84, 46, 14);
+		lblNewLabel.setBounds(422, 73, 68, 14);
 		contentPane.add(lblNewLabel);
 		
 		txtidtipomedio = new JTextField();
 		txtidtipomedio.setColumns(10);
-		txtidtipomedio.setBounds(417, 109, 86, 20);
+		txtidtipomedio.setBounds(411, 98, 86, 20);
 		contentPane.add(txtidtipomedio);
 		
 		btndelete = new JButton("");
@@ -109,7 +110,7 @@ public class JTipomedios extends JFrame {
 			}
 		});
 		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btndelete.setBounds(439, 145, 51, 47);
+		btndelete.setBounds(422, 131, 51, 47);
 		btndelete.setContentAreaFilled(false);
 		contentPane.add(btndelete);
 		
@@ -117,6 +118,25 @@ public class JTipomedios extends JFrame {
 		lblNewLabel_3.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
 		lblNewLabel_3.setBounds(178, 25, 190, 20);
 		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("consultar medios");
+		lblNewLabel_2_1.setBounds(37, 188, 86, 14);
+		contentPane.add(lblNewLabel_2_1);
+		
+		JButton btncolsutar = new JButton("");
+		btncolsutar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cr.readOne(Integer.parseInt(txtconsulta.getText()) , TxtNombre, TxtObservacion);
+			}
+		});
+		btncolsutar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btncolsutar.setBounds(313, 188, 42, 27);
+		contentPane.add(btncolsutar);
+		
+		txtconsulta = new JTextField();
+		txtconsulta.setColumns(10);
+		txtconsulta.setBounds(230, 185, 86, 30);
+		btncolsutar.setContentAreaFilled(false);
+		contentPane.add(txtconsulta);
 	}
-
 }

@@ -39,6 +39,7 @@ public class JPaquete extends JFrame {
 	Paquete paq = new Paquete();
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
+	private JTextField txtconsulta;
 	/**
 	 * Launch the application.
 	 */
@@ -60,7 +61,7 @@ public class JPaquete extends JFrame {
 	 */
 	public JPaquete() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 557, 592);
+		setBounds(100, 100, 557, 674);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -77,7 +78,7 @@ public class JPaquete extends JFrame {
 			
 			}
 		});
-		btnGuardar.setBounds(154, 499, 89, 23);
+		btnGuardar.setBounds(185, 586, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblIdDestino = new JLabel("Id destino");
@@ -168,8 +169,8 @@ public class JPaquete extends JFrame {
 		lblNewLabel_2_1_1.setBounds(67, 449, 58, 14);
 		contentPane.add(lblNewLabel_2_1_1);
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("idmedio");
-		lblNewLabel_2_1_1_1.setBounds(67, 482, 58, 14);
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("idtransporte");
+		lblNewLabel_2_1_1_1.setBounds(67, 482, 86, 14);
 		contentPane.add(lblNewLabel_2_1_1_1);
 		
 		txtidpromotores = new JTextField();
@@ -213,7 +214,7 @@ public class JPaquete extends JFrame {
 		contentPane.add(btndelete);
 		
 		lblNewLabel_2 = new JLabel("codigo de venta");
-		lblNewLabel_2.setBounds(414, 127, 86, 14);
+		lblNewLabel_2.setBounds(414, 127, 108, 14);
 		btndelete.setContentAreaFilled(false);
 		contentPane.add(lblNewLabel_2);
 		
@@ -221,5 +222,26 @@ public class JPaquete extends JFrame {
 		lblNewLabel_3.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
 		lblNewLabel_3.setBounds(190, 36, 190, 20);
 		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_2_1_1_1_1 = new JLabel("Consulta");
+		lblNewLabel_2_1_1_1_1.setBounds(67, 527, 58, 14);
+		contentPane.add(lblNewLabel_2_1_1_1_1);
+		
+		txtconsulta = new JTextField();
+		txtconsulta.setColumns(10);
+		txtconsulta.setBounds(247, 524, 86, 20);
+		contentPane.add(txtconsulta);
+		
+		JButton btnconsulta = new JButton("");
+		btnconsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				paq.readOne(Integer.parseInt(txtconsulta.getText()), TxtIddestino, TxtIdorigen, TxtPrecio, TxtFechaventa, TxtHoraventa, TxtFechaejecucion, TxtHorasalida, TxtObservaciones, txtidpromotores, txtidcliente, txtidagencia, txtidmedio, txtidtransporte);
+				
+			}
+		});
+		btnconsulta.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btnconsulta.setBounds(343, 521, 45, 23);
+		btnconsulta.setContentAreaFilled(false);
+		contentPane.add(btnconsulta);
 	}
 }

@@ -33,6 +33,7 @@ public class JOperadores extends JFrame {
 	private JTextField txtidtransporte;
 	private JTextField txtidoperadores;
 	Operadores ope = new Operadores();
+	private JTextField txtconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -133,7 +134,7 @@ public class JOperadores extends JFrame {
 			
 			}
 		});
-		btnGuardar.setBounds(168, 343, 89, 23);
+		btnGuardar.setBounds(171, 368, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1_1 = new JLabel("idtransporte");
@@ -169,6 +170,26 @@ public class JOperadores extends JFrame {
 		lblNewLabel_2_1.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
 		lblNewLabel_2_1.setBounds(168, 24, 190, 20);
 		contentPane.add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_1_1_1_1_1_1_1_1_1 = new JLabel("Consultar");
+		lblNewLabel_1_1_1_1_1_1_1_1_1.setBounds(63, 312, 108, 14);
+		contentPane.add(lblNewLabel_1_1_1_1_1_1_1_1_1);
+		
+		txtconsultar = new JTextField();
+		txtconsultar.setColumns(10);
+		txtconsultar.setBounds(231, 308, 86, 20);
+		contentPane.add(txtconsultar);
+		
+		JButton btnconsulta = new JButton("");
+		btnconsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ope.readOne(Integer.parseInt(txtconsultar.getText()), TxtTipodocumento, TxtNumerodocumento, TxtNombres, TxtApellidos, TxtTelefono, TxtCorreopersonal, TxtDireccion, txtidtransporte);
+			}
+		});
+		btnconsulta.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btnconsulta.setBounds(331, 305, 44, 23);
+		btnconsulta.setContentAreaFilled(false);
+		contentPane.add(btnconsulta);
 	}
 
 }

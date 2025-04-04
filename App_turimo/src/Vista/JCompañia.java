@@ -31,6 +31,9 @@ public class JCompañia extends JFrame {
 	private JTextField txtidcompañia;
 	Compañia com = new Compañia();
 	private JLabel lblNewLabel_2;
+	private JLabel lblNewLabel_1_3_2;
+	private JTextField txtconsultar;
+	private JButton btnconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -112,7 +115,7 @@ public class JCompañia extends JFrame {
 			com.create(TxtNombre.getText(),TxtDireccion.getText(),TxtTelefono.getText(),TxtCorreo.getText(),TxtWeb.getText());
 			}
 		});
-		btnGuardar.setBounds(152, 254, 89, 23);
+		btnGuardar.setBounds(158, 291, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel = new JLabel("idcompañia");
@@ -140,5 +143,25 @@ public class JCompañia extends JFrame {
 		lblNewLabel_2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(171, 45, 190, 20);
 		contentPane.add(lblNewLabel_2);
+		
+		lblNewLabel_1_3_2 = new JLabel("consultar");
+		lblNewLabel_1_3_2.setBounds(38, 247, 46, 14);
+		contentPane.add(lblNewLabel_1_3_2);
+		
+		txtconsultar = new JTextField();
+		txtconsultar.setColumns(10);
+		txtconsultar.setBounds(219, 244, 86, 20);
+		contentPane.add(txtconsultar);
+		
+		btnconsultar = new JButton("");
+		btnconsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				com.readOne(Integer.parseInt(txtconsultar.getText()), TxtNombre, TxtDireccion, TxtTelefono, TxtCorreo, TxtWeb);
+			}
+		});
+		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btnconsultar.setBounds(315, 241, 46, 23);
+		btnconsultar.setContentAreaFilled(false);
+		contentPane.add(btnconsultar);
 	}
 }

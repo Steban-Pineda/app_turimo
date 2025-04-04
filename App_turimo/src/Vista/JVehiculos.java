@@ -34,6 +34,7 @@ public class JVehiculos extends JFrame {
 	private JTextField txtidtipotransporte;
 	private JTextField txtidtransporte;
 	Vehiculos veh = new Vehiculos();
+	private JTextField txtconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -55,7 +56,7 @@ public class JVehiculos extends JFrame {
 	 */
 	public JVehiculos() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 543);
+		setBounds(100, 100, 550, 624);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -133,7 +134,7 @@ public class JVehiculos extends JFrame {
 				veh.create(TxtPlaca.getText(),Integer.parseInt(TxtCapacidad.getText()),TxtModelo.getText(),TxtMarca.getText(),TxtEstadovehiculo.getText(),Integer.parseInt(TxtNumeromotor.getText()), TxtCategoria.getText(),Integer.parseInt(txtidtipotransporte.getText()));
 			}
 		});
-		btnGuardar.setBounds(156, 432, 89, 23);
+		btnGuardar.setBounds(166, 488, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1_7_1 = new JLabel("idtipotransporte");
@@ -171,6 +172,26 @@ public class JVehiculos extends JFrame {
 		lblNewLabel_2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(168, 11, 190, 20);
 		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_1_7_1_1 = new JLabel("Consultar");
+		lblNewLabel_1_7_1_1.setBounds(32, 431, 91, 14);
+		contentPane.add(lblNewLabel_1_7_1_1);
+		
+		txtconsultar = new JTextField();
+		txtconsultar.setColumns(10);
+		txtconsultar.setBounds(248, 428, 86, 20);
+		contentPane.add(txtconsultar);
+		
+		JButton btnconsultar = new JButton("");
+		btnconsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				veh.readOne(Integer.parseInt(txtconsultar.getText()), TxtPlaca, TxtCapacidad, TxtModelo, TxtMarca, TxtEstadovehiculo,  txtidtipotransporte, TxtNumeromotor, TxtCategoria);
+			}
+		});
+		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btnconsultar.setBounds(344, 422, 46, 23);
+		btnconsultar.setContentAreaFilled(false);
+		contentPane.add(btnconsultar);
 	}
 
 }

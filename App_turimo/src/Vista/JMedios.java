@@ -30,6 +30,9 @@ public class JMedios extends JFrame {
 	private JButton btndelete;
 	Medios med = new Medios();
 	private JLabel lblNewLabel_2;
+	private JLabel lblConsultar;
+	private JTextField txtconsultar;
+	private JButton btnconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -85,7 +88,7 @@ public class JMedios extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(161, 259, 89, 23);
+		btnGuardar.setBounds(160, 272, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblIdtipomedio = new JLabel("idtipomedio");
@@ -121,6 +124,26 @@ public class JMedios extends JFrame {
 		lblNewLabel_2.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 16));
 		lblNewLabel_2.setBounds(179, 34, 190, 20);
 		contentPane.add(lblNewLabel_2);
+		
+		lblConsultar = new JLabel("Consultar");
+		lblConsultar.setBounds(75, 222, 86, 14);
+		contentPane.add(lblConsultar);
+		
+		txtconsultar = new JTextField();
+		txtconsultar.setColumns(10);
+		txtconsultar.setBounds(236, 219, 86, 20);
+		contentPane.add(txtconsultar);
+		
+		btnconsultar = new JButton("");
+		btnconsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				med.readOne(Integer.parseInt(txtconsultar.getText()), TxtNombres, TxtObservaciones, txtidtipomedio);
+			}
+		});
+		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btnconsultar.setBounds(332, 216, 46, 23);
+		btnconsultar.setContentAreaFilled(false);
+		contentPane.add(btnconsultar);
 	}
 
 }

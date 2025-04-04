@@ -19,6 +19,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JAgencia extends JFrame {
 
@@ -32,6 +34,7 @@ public class JAgencia extends JFrame {
 	private JTextField txtidcompañia;
 	private JTextField txtidagencia;
 	Agencia age = new Agencia();
+	private JTextField txtconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -148,8 +151,7 @@ public class JAgencia extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				age.delete(Integer.parseInt(txtidagencia.getText()));
-				
-				
+
 			}
 		});
 		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
@@ -161,5 +163,25 @@ public class JAgencia extends JFrame {
 		lblNewLabel_3.setFont(new Font("Microsoft YaHei UI", Font.PLAIN, 14));
 		lblNewLabel_3.setBounds(176, 28, 171, 20);
 		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_4 = new JLabel("Consultar");
+		lblNewLabel_4.setBounds(34, 308, 46, 14);
+		contentPane.add(lblNewLabel_4);
+		
+		txtconsultar = new JTextField();
+		txtconsultar.setBounds(204, 305, 86, 20);
+		contentPane.add(txtconsultar);
+		txtconsultar.setColumns(10);
+		
+		JButton btnconsultar = new JButton("");
+		btnconsultar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				age.readOne(Integer.parseInt(txtconsultar.getText()), TxtNombre, TxtDireccion, TxtTelefono, TxtCorreo, TxtWeb);
+			}
+		});
+		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
+		btnconsultar.setBounds(300, 299, 52, 23);
+		btnconsultar.setContentAreaFilled(false);
+		contentPane.add(btnconsultar);
 	}
 }
