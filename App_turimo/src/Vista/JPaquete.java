@@ -39,7 +39,7 @@ public class JPaquete extends JFrame {
 	Paquete paq = new Paquete();
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
-	private JTextField txtconsulta;
+	private JButton btnNewButton;
 	/**
 	 * Launch the application.
 	 */
@@ -61,7 +61,7 @@ public class JPaquete extends JFrame {
 	 */
 	public JPaquete() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 557, 674);
+		setBounds(100, 100, 593, 674);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -223,25 +223,28 @@ public class JPaquete extends JFrame {
 		lblNewLabel_3.setBounds(190, 36, 190, 20);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_2_1_1_1_1 = new JLabel("Consulta");
-		lblNewLabel_2_1_1_1_1.setBounds(67, 527, 58, 14);
-		contentPane.add(lblNewLabel_2_1_1_1_1);
-		
-		txtconsulta = new JTextField();
-		txtconsulta.setColumns(10);
-		txtconsulta.setBounds(247, 524, 86, 20);
-		contentPane.add(txtconsulta);
-		
 		JButton btnconsulta = new JButton("");
 		btnconsulta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				paq.readOne(Integer.parseInt(txtconsulta.getText()), TxtIddestino, TxtIdorigen, TxtPrecio, TxtFechaventa, TxtHoraventa, TxtFechaejecucion, TxtHorasalida, TxtObservaciones, txtidpromotores, txtidcliente, txtidagencia, txtidmedio, txtidtransporte);
+				paq.readOne(Integer.parseInt(txtcódigoventa.getText()), TxtIddestino, TxtIdorigen, TxtPrecio, TxtFechaventa, TxtHoraventa, TxtFechaejecucion, TxtHorasalida, TxtObservaciones, txtidpromotores, txtidcliente, txtidagencia, txtidmedio, txtidtransporte);
 				
 			}
 		});
 		btnconsulta.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
-		btnconsulta.setBounds(343, 521, 45, 23);
+		btnconsulta.setBounds(387, 202, 45, 23);
 		btnconsulta.setContentAreaFilled(false);
 		contentPane.add(btnconsulta);
+		
+		btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				paq.update(Integer.parseInt(txtcódigoventa.getText()),Integer.parseInt(TxtIddestino.getText()), Integer.parseInt(TxtIdorigen.getText()),TxtPrecio.getText(),TxtFechaventa.getText(),TxtHoraventa.getText(),TxtFechaejecucion.getText(),TxtHorasalida.getText(),TxtObservaciones.getText(),
+						Integer.parseInt(txtidpromotores.getText()),Integer.parseInt(txtidcliente.getText()),Integer.parseInt(txtidagencia.getText()),Integer.parseInt(txtidmedio.getText()),Integer.parseInt(txtidtransporte.getText()));
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\172618_update_icon.png"));
+		btnNewButton.setBounds(497, 199, 58, 48);
+		btnNewButton.setContentAreaFilled(false);
+		contentPane.add(btnNewButton);
 	}
 }

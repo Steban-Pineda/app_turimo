@@ -198,4 +198,37 @@ Conexion conector = new Conexion();
 		}
 
 	}
+	public void update(int idoperadores, String tipodocumento, String numerodocumento, String nombres, String apellidos,
+			String telefono,String correo,String direccion,int idtransporte) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+
+		String script = "UPDATE tbloperadores SET tipodocumento = ?, numerodocumento = ?, nombres = ?, apellidos = ?, telefono = ?, correo = ?, direccion = ?, idtransporte = ?  WHERE idoperadores = ? ";
+
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			// parametrizar los campos
+
+			pst.setString(1, tipodocumento);
+			pst.setString(2, numerodocumento);
+			pst.setString(3, nombres);
+			pst.setString(4, apellidos);
+			pst.setString(5, telefono);
+			pst.setString(6, correo);
+			pst.setString(7, direccion);
+			pst.setInt(8, idtransporte);
+			pst.setInt(9, idoperadores);
+
+			int respuesta = JOptionPane.showConfirmDialog(null, "Desea actualizar el registro No." + idoperadores + "?");
+			if (respuesta == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "registro No." + idoperadores + "actualizado");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
 }

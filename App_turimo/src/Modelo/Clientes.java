@@ -247,6 +247,41 @@ public class Clientes {
 
 	}
 
-	
+	public void update(int idcliente, String tipodocumento, String numerodocumento, String nombres,
+			String apellidos, String eps, String alergias, String fechanacimiento, String estadocivil, String telefono, String correo, String direccion) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+
+		String script = "UPDATE tblclientes SET tipodocumento = ?, numerodocumento = ?, nombres = ?, apellidos = ?, eps = ?, alergias = ?, fechanacimiento = ?, estadocivil = ?, telefono = ?, correo = ?, direccion = ? WHERE idcliente = ? ";
+
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			// parametrizar los campos
+
+			pst.setString(1, tipodocumento);
+			pst.setString(2, numerodocumento);
+			pst.setString(3, nombres);
+			pst.setString(4, apellidos);
+			pst.setString(5, eps);
+			pst.setString(6, alergias);
+			pst.setString(7, fechanacimiento);
+			pst.setString(8, estadocivil);
+			pst.setString(9, telefono);
+			pst.setString(10, correo);
+			pst.setString(11, direccion);
+			pst.setInt(12, idcliente);
+
+			int respuesta = JOptionPane.showConfirmDialog(null, "Desea actualizar el registro No." + idcliente + "?");
+			if (respuesta == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "registro No." + idcliente + "actualizado");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
 	
 }

@@ -118,7 +118,7 @@ public class Vehiculos {
 
 	Conexion conector = new Conexion();
 
-	public void create(String placa, int capacidad,String modelo, String marca, String estadovehiculo, int numero_motor, String categoria, int idtipotransporte ) {
+	public void create(String placa, int capacidad,String modelo, String marca, String estadovehiculo, int idtipotransporte, int numero_motor, String categoria ) {
 		Connection dbConnection = null;
 		PreparedStatement pst = null;
 		
@@ -133,9 +133,10 @@ public class Vehiculos {
 			pst.setString(3, modelo);
 			pst.setString(4, marca);
 			pst.setString(5, estadovehiculo);
-			pst.setInt(6, numero_motor);
-			pst.setString(7, categoria);
-			pst.setInt(8, idtipotransporte);
+			pst.setInt(6, idtipotransporte);
+			pst.setInt(7, numero_motor);
+			pst.setString(8, categoria);
+		
 			//ejecutar la trx
 			pst.executeUpdate();
 			JOptionPane.showConfirmDialog(null, "Registro con exito");
@@ -172,7 +173,7 @@ public class Vehiculos {
 		}
 	
 	}
-	public void readOne( int idtransporte, JTextField placa, JTextField capacidad, JTextField modelo, JTextField marca, JTextField estadovehiculo,JTextField idtipotransporte,JTextField numero_motor,JTextField categoria ) {
+	public void readOne( int idtransporte, JTextField placa, JTextField capacidad, JTextField modelo, JTextField marca, JTextField estadovehiculo, JTextField idtipotransporte, JTextField numero_motor, JTextField categoria ) {
 		Connection dbConnection = null;
 		PreparedStatement pst = null;
 		
@@ -206,6 +207,38 @@ public class Vehiculos {
 		}
 
 	}
+	public void update(int idtransporte, String placa, int capacidad, String modelo, String marca,
+			String estadovehiculo, int idtipotransporte, int numero_motor, String categoria) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
 
+		String script = "UPDATE tblvehiculos SET placa = ?, capacidad = ?, modelo = ?, marca = ?,estadovehiculo = ?, idtipotransporte = ?, idtipotransporte = ?, categoria = ? WHERE idtransporte = ? ";
+
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			// parametrizar los campos
+
+			pst.setString(1, placa);
+			pst.setInt(2, capacidad);
+			pst.setString(3, modelo);
+			pst.setString(4, marca);
+			pst.setString(5, estadovehiculo);
+			pst.setInt(6, idtipotransporte);
+			pst.setInt(7, numero_motor);
+			pst.setString(8, categoria);
+			pst.setInt(9, idtransporte);
+
+			int respuesta = JOptionPane.showConfirmDialog(null, "Desea actualizar el registro No." + idtransporte + "?");
+			if (respuesta == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "registro No." + idtransporte + "actualizado");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
 
 }

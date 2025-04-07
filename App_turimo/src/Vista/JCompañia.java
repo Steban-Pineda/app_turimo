@@ -34,6 +34,7 @@ public class JCompañia extends JFrame {
 	private JLabel lblNewLabel_1_3_2;
 	private JTextField txtconsultar;
 	private JButton btnconsultar;
+	private JButton btnNewButton;
 	/**
 	 * Launch the application.
 	 */
@@ -55,7 +56,7 @@ public class JCompañia extends JFrame {
 	 */
 	public JCompañia() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 495, 430);
+		setBounds(100, 100, 551, 430);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -119,12 +120,12 @@ public class JCompañia extends JFrame {
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel = new JLabel("idcompañia");
-		lblNewLabel.setBounds(395, 130, 68, 14);
+		lblNewLabel.setBounds(371, 102, 68, 14);
 		contentPane.add(lblNewLabel);
 		
 		txtidcompañia = new JTextField();
 		txtidcompañia.setColumns(10);
-		txtidcompañia.setBounds(371, 152, 86, 20);
+		txtidcompañia.setBounds(355, 127, 86, 20);
 		contentPane.add(txtidcompañia);
 		
 		JButton btndelete = new JButton("");
@@ -135,7 +136,7 @@ public class JCompañia extends JFrame {
 				
 			}
 		});
-		btndelete.setBounds(395, 186, 46, 49);
+		btndelete.setBounds(371, 155, 46, 49);
 		btndelete.setContentAreaFilled(false);
 		contentPane.add(btndelete);
 		
@@ -156,12 +157,23 @@ public class JCompañia extends JFrame {
 		btnconsultar = new JButton("");
 		btnconsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				com.readOne(Integer.parseInt(txtconsultar.getText()), TxtNombre, TxtDireccion, TxtTelefono, TxtCorreo, TxtWeb);
+				com.readOne(Integer.parseInt(txtidcompañia.getText()), TxtNombre, TxtDireccion, TxtTelefono, TxtCorreo, TxtWeb);
 			}
 		});
 		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
-		btnconsultar.setBounds(315, 241, 46, 23);
+		btnconsultar.setBounds(335, 155, 46, 45);
 		btnconsultar.setContentAreaFilled(false);
 		contentPane.add(btnconsultar);
+		
+		btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				com.update(Integer.parseInt(txtidcompañia.getText()), TxtNombre.getText(),TxtDireccion.getText(),TxtTelefono.getText(),TxtCorreo.getText(),TxtWeb.getText());
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\172618_update_icon.png"));
+		btnNewButton.setBounds(427, 155, 53, 45);
+		btnNewButton.setContentAreaFilled(false);
+		contentPane.add(btnNewButton);
 	}
 }

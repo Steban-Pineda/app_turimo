@@ -33,7 +33,6 @@ public class JPromotor extends JFrame {
 	private JTextField TxtFechanacimiento;
 	private JTextField txtidpromotores;
 	Promotor pro = new Promotor();
-	private JTextField txtconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -55,7 +54,7 @@ public class JPromotor extends JFrame {
 	 */
 	public JPromotor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 536, 554);
+		setBounds(100, 100, 536, 507);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -153,7 +152,7 @@ public class JPromotor extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(196, 408, 89, 23);
+		btnGuardar.setBounds(191, 391, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblIdpromotores = new JLabel("idpromotores");
@@ -172,7 +171,7 @@ public class JPromotor extends JFrame {
 			}
 		});
 		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btndelete.setBounds(405, 163, 48, 52);
+		btndelete.setBounds(405, 166, 48, 52);
 		btndelete.setContentAreaFilled(false);
 		contentPane.add(btndelete);
 		
@@ -181,25 +180,26 @@ public class JPromotor extends JFrame {
 		lblNewLabel_2.setBounds(178, 30, 190, 20);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_1_1_1_1_1_1_2_1 = new JLabel("Consultar");
-		lblNewLabel_1_1_1_1_1_1_2_1.setBounds(78, 352, 108, 14);
-		contentPane.add(lblNewLabel_1_1_1_1_1_1_2_1);
-		
-		txtconsultar = new JTextField();
-		txtconsultar.setColumns(10);
-		txtconsultar.setBounds(246, 349, 86, 20);
-		contentPane.add(txtconsultar);
-		
 		JButton btnconsultar = new JButton("");
 		btnconsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pro.readOne(Integer.parseInt(txtconsultar.getText()), TxtTipodocumento, TxtNumerodocumento, TxtNombres, TxtApellidos, TxtTelefono, TxtCorreopersonal, TxtCorreocorp, TxtDireccion, TxtFechanacimiento);
+				pro.readOne(Integer.parseInt(txtidpromotores.getText()), TxtTipodocumento, TxtNumerodocumento, TxtNombres, TxtApellidos, TxtTelefono, TxtCorreopersonal, TxtCorreocorp, TxtDireccion, TxtFechanacimiento);
 			}
 		});
 		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
-		btnconsultar.setBounds(342, 352, 48, 23);
+		btnconsultar.setBounds(359, 160, 48, 52);
 		btnconsultar.setContentAreaFilled(false);
 		contentPane.add(btnconsultar);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				pro.update(Integer.parseInt(txtidpromotores.getText()), TxtTipodocumento.getText(), TxtNumerodocumento.getText(),TxtNombres.getText(),TxtApellidos.getText(),TxtTelefono.getText(),TxtCorreopersonal.getText(),TxtCorreocorp.getText(),TxtDireccion.getText(),TxtFechanacimiento.getText());
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\172618_update_icon.png"));
+		btnNewButton.setBounds(456, 169, 54, 43);
+		btnNewButton.setContentAreaFilled(false);
+		contentPane.add(btnNewButton);
 	}
-
 }

@@ -222,4 +222,38 @@ Conexion conector = new Conexion();
 		}
 
 	}
+	public void update(int idpromotores, String tipodocumento, String numerodocumento, String nombres, String apellidos,
+			String telefono,String correopersonal, String correocorp, String direcion, String fechanacimiento) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+
+		String script = "UPDATE tblpromotores SET tipodocumento = ?, numerodocumento = ?, nombres = ?, apellidos = ?, telefono = ?, correopersonal = ?, correocorp = ?, direcion = ?, fechanacimiento = ? WHERE idpromotores = ? ";
+
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			// parametrizar los campos
+
+			pst.setString(1, tipodocumento);
+			pst.setString(2, numerodocumento);
+			pst.setString(3, nombres);
+			pst.setString(4, apellidos);
+			pst.setString(5, telefono);
+			pst.setString(6, correopersonal);
+			pst.setString(7, correocorp);
+			pst.setString(8, direcion);
+			pst.setString(9, fechanacimiento);
+			pst.setInt(10, idpromotores);
+
+			int respuesta = JOptionPane.showConfirmDialog(null, "Desea actualizar el registro No." + idpromotores + "?");
+			if (respuesta == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "registro No." + idpromotores + "actualizado");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
 }

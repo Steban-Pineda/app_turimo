@@ -35,7 +35,6 @@ public class JClientes extends JFrame {
 	private JTextField TxtDireccion;
 	private JTextField txtidcliente;
 	Clientes cli = new Clientes ();
-	private JTextField txtconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -57,7 +56,7 @@ public class JClientes extends JFrame {
 	 */
 	public JClientes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 541, 594);
+		setBounds(100, 100, 541, 669);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -171,7 +170,7 @@ public class JClientes extends JFrame {
 				cli.create(TxtTipodocumento.getText(), TxtNumerodocumento.getText(), TxtNombres.getText(), TxtApellidos.getText(), TxtEPS.getText(), TxtAlergias.getText(),TxtFechanacimiento.getText(),TxtEstadocivil.getText(),TxtTelefono.getText(),TxtCorreo.getText(),TxtDireccion.getText());
 			}
 		});
-		btnGuardar.setBounds(150, 493, 89, 23);
+		btnGuardar.setBounds(149, 550, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_2 = new JLabel("Id cliente");
@@ -199,25 +198,26 @@ public class JClientes extends JFrame {
 		lblNewLabel_3.setBounds(203, 37, 181, 20);
 		contentPane.add(lblNewLabel_3);
 		
-		JLabel txt = new JLabel("consultar");
-		txt.setBounds(55, 440, 108, 14);
-		contentPane.add(txt);
-		
-		txtconsultar = new JTextField();
-		txtconsultar.setColumns(10);
-		txtconsultar.setBounds(235, 437, 86, 20);
-		contentPane.add(txtconsultar);
-		
 		JButton btnconsultar = new JButton("");
 		btnconsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cli.readOne(Integer.parseInt(txtconsultar.getText()), TxtTipodocumento, TxtNumerodocumento, TxtNombres, TxtApellidos, TxtEPS, TxtAlergias, TxtFechanacimiento, TxtEstadocivil, TxtTelefono, TxtCorreo, TxtDireccion);
+				cli.readOne(Integer.parseInt(txtidcliente.getText()), TxtTipodocumento, TxtNumerodocumento, TxtNombres, TxtApellidos, TxtEPS, TxtAlergias, TxtFechanacimiento, TxtEstadocivil, TxtTelefono, TxtCorreo, TxtDireccion);
 			}
 		});
 		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
-		btnconsultar.setBounds(331, 440, 48, 23);
+		btnconsultar.setBounds(373, 143, 48, 23);
 		btnconsultar.setContentAreaFilled(false);
 		contentPane.add(btnconsultar);
+		
+		JButton btnactializar = new JButton("");
+		btnactializar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cli.update(Integer.parseInt(txtidcliente.getText()), TxtTipodocumento.getText(), TxtNumerodocumento.getText(), TxtNombres.getText(), TxtApellidos.getText(), TxtEPS.getText(), TxtAlergias.getText(),TxtFechanacimiento.getText(),TxtEstadocivil.getText(),TxtTelefono.getText(),TxtCorreo.getText(),TxtDireccion.getText());
+			}
+		});
+		btnactializar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\172618_update_icon.png"));
+		btnactializar.setBounds(477, 134, 48, 35);
+		btnactializar.setContentAreaFilled(false);
+		contentPane.add(btnactializar);
 	}
-
 }

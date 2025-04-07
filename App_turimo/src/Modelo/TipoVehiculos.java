@@ -142,6 +142,31 @@ public class TipoVehiculos {
 		}
 
 	}
+	public void update(int idtipotransporte, String nombre,  String observacion) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
 
+		String script = "UPDATE tbltiosvehiculos SET nombre = ?, observacion = ? WHERE idtipotransporte = ? ";
+
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			// parametrizar los campos
+
+			pst.setString(1,nombre);
+			pst.setString(2, observacion);
+		
+			pst.setInt(3, idtipotransporte);
+
+			int respuesta = JOptionPane.showConfirmDialog(null, "Desea actualizar el registro No." + idtipotransporte + "?");
+			if (respuesta == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "registro No." + idtipotransporte + "actualizado");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

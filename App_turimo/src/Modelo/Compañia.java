@@ -173,4 +173,35 @@ public class Compañia {
 		}
 
 	}
+	public void update(int idcompañia, String nombre, String direccion, String numerotelefonico, String correoelectonico,
+			String web) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+
+		String script = "UPDATE tblcompañia SET nombre = ?, direccion = ?, numerotelefonico = ?, correoelectonico = ?,web = ?  WHERE idcompañia = ? ";
+
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			// parametrizar los campos
+
+			pst.setString(1, nombre);
+			pst.setString(2, direccion);
+			pst.setString(3, numerotelefonico);
+			pst.setString(4, correoelectonico);
+			pst.setString(5, web);
+			pst.setInt(6, idcompañia);
+
+			int respuesta = JOptionPane.showConfirmDialog(null, "Desea actualizar el registro No." + idcompañia + "?");
+			if (respuesta == JOptionPane.YES_OPTION) {
+				pst.executeUpdate();
+				JOptionPane.showConfirmDialog(null, "registro No." + idcompañia + "actualizado");
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
 }

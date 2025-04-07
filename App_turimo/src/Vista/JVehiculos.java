@@ -34,7 +34,6 @@ public class JVehiculos extends JFrame {
 	private JTextField txtidtipotransporte;
 	private JTextField txtidtransporte;
 	Vehiculos veh = new Vehiculos();
-	private JTextField txtconsultar;
 	/**
 	 * Launch the application.
 	 */
@@ -56,7 +55,7 @@ public class JVehiculos extends JFrame {
 	 */
 	public JVehiculos() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 550, 624);
+		setBounds(100, 100, 598, 624);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -131,7 +130,7 @@ public class JVehiculos extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 			
-				veh.create(TxtPlaca.getText(),Integer.parseInt(TxtCapacidad.getText()),TxtModelo.getText(),TxtMarca.getText(),TxtEstadovehiculo.getText(),Integer.parseInt(TxtNumeromotor.getText()), TxtCategoria.getText(),Integer.parseInt(txtidtipotransporte.getText()));
+				veh.create(TxtPlaca.getText(),Integer.parseInt(TxtCapacidad.getText()),TxtModelo.getText(),TxtMarca.getText(),TxtEstadovehiculo.getText(),Integer.parseInt(txtidtipotransporte.getText()),Integer.parseInt(TxtNumeromotor.getText()),TxtCategoria.getText());
 			}
 		});
 		btnGuardar.setBounds(166, 488, 89, 23);
@@ -147,7 +146,7 @@ public class JVehiculos extends JFrame {
 		contentPane.add(txtidtipotransporte);
 		
 		JLabel lblNewLabel_1_5 = new JLabel("idtransporte");
-		lblNewLabel_1_5.setBounds(424, 77, 46, 14);
+		lblNewLabel_1_5.setBounds(397, 77, 117, 14);
 		contentPane.add(lblNewLabel_1_5);
 		
 		txtidtransporte = new JTextField();
@@ -164,7 +163,7 @@ public class JVehiculos extends JFrame {
 			
 		});
 		btndelete.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\9162995_document_email_delete_recycle_trash_icon.png"));
-		btndelete.setBounds(407, 133, 60, 57);
+		btndelete.setBounds(423, 133, 60, 57);
 		btndelete.setContentAreaFilled(false);
 		contentPane.add(btndelete);
 		
@@ -173,25 +172,27 @@ public class JVehiculos extends JFrame {
 		lblNewLabel_2.setBounds(168, 11, 190, 20);
 		contentPane.add(lblNewLabel_2);
 		
-		JLabel lblNewLabel_1_7_1_1 = new JLabel("Consultar");
-		lblNewLabel_1_7_1_1.setBounds(32, 431, 91, 14);
-		contentPane.add(lblNewLabel_1_7_1_1);
-		
-		txtconsultar = new JTextField();
-		txtconsultar.setColumns(10);
-		txtconsultar.setBounds(248, 428, 86, 20);
-		contentPane.add(txtconsultar);
-		
 		JButton btnconsultar = new JButton("");
 		btnconsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				veh.readOne(Integer.parseInt(txtconsultar.getText()), TxtPlaca, TxtCapacidad, TxtModelo, TxtMarca, TxtEstadovehiculo,  txtidtipotransporte, TxtNumeromotor, TxtCategoria);
+				veh.readOne(Integer.parseInt(txtidtransporte.getText()), TxtPlaca, TxtCapacidad, TxtModelo, TxtMarca, TxtEstadovehiculo,  txtidtipotransporte, TxtNumeromotor, TxtCategoria);
 			}
 		});
 		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
-		btnconsultar.setBounds(344, 422, 46, 23);
+		btnconsultar.setBounds(374, 153, 36, 37);
 		btnconsultar.setContentAreaFilled(false);
 		contentPane.add(btnconsultar);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				veh.update(Integer.parseInt(txtidtipotransporte.getText()),TxtPlaca.getText(),Integer.parseInt(TxtCapacidad.getText()),TxtModelo.getText(),TxtMarca.getText(),TxtEstadovehiculo.getText(),Integer.parseInt(TxtNumeromotor.getText()),Integer.parseInt(txtidtipotransporte.getText()),TxtCategoria.getText());
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\172618_update_icon.png"));
+		btnNewButton.setBounds(490, 153, 46, 34);
+		btnNewButton.setContentAreaFilled(false);
+		contentPane.add(btnNewButton);
 	}
 
 }

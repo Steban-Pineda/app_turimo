@@ -135,7 +135,33 @@ public void readOne( int idtipomedio, JTextField nombres, JTextField observacion
 	}
 
 }
+public void update(int idtipomedio, String nombres,  String observacion) {
+	Connection dbConnection = null;
+	PreparedStatement pst = null;
 
+	String script = "UPDATE tbltipomedios SET nombres = ?, observacion = ? WHERE idtipomedio = ? ";
+
+	try {
+		dbConnection = conector.conectarBD();
+		pst = dbConnection.prepareStatement(script);
+		// parametrizar los campos
+
+		pst.setString(1,nombres);
+		pst.setString(2, observacion);
+	
+		pst.setInt(3, idtipomedio);
+
+		int respuesta = JOptionPane.showConfirmDialog(null, "Desea actualizar el registro No." + idtipomedio + "?");
+		if (respuesta == JOptionPane.YES_OPTION) {
+			pst.executeUpdate();
+			JOptionPane.showConfirmDialog(null, "registro No." + idtipomedio + "actualizado");
+		}
+
+	} catch (SQLException e) {
+		System.out.println(e.getMessage());
+	}
+
+}
 
 }
 	

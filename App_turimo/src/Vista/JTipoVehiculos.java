@@ -29,9 +29,8 @@ public class JTipoVehiculos extends JFrame {
 	private JButton btndelete;
 	TipoVehiculos tvh = new TipoVehiculos();
 	private JLabel lblNewLabel_1;
-	private JLabel lblConsultar;
-	private JTextField txtconsultar;
 	private JButton btnconsultar;
+	private JButton btnNewButton;
 	/**
 	 * Launch the application.
 	 */
@@ -119,24 +118,27 @@ public class JTipoVehiculos extends JFrame {
 		lblNewLabel_1.setBounds(182, 27, 224, 20);
 		contentPane.add(lblNewLabel_1);
 		
-		lblConsultar = new JLabel("Consultar");
-		lblConsultar.setBounds(48, 189, 86, 14);
-		contentPane.add(lblConsultar);
-		
-		txtconsultar = new JTextField();
-		txtconsultar.setColumns(10);
-		txtconsultar.setBounds(250, 186, 86, 20);
-		contentPane.add(txtconsultar);
-		
 		btnconsultar = new JButton("");
 		btnconsultar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tvh.readOne(Integer.parseInt(txtconsultar.getText()), TxtNombre, TxtObservacion);
+				tvh.readOne(Integer.parseInt(txtidtipotransporte.getText()), TxtNombre, TxtObservacion);
 			}
 		});
 		btnconsultar.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\511943_find_loupe_magnifying glass_search_icon.png"));
-		btnconsultar.setBounds(340, 186, 35, 25);
+		btnconsultar.setBounds(381, 158, 35, 38);
 		btnconsultar.setContentAreaFilled(false);
 		contentPane.add(btnconsultar);
+		
+		btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tvh.update(Integer.parseInt(txtidtipotransporte.getText()), TxtNombre.getText(),TxtObservacion.getText());
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\172618_update_icon.png"));
+		btnNewButton.setBounds(472, 158, 54, 35);
+		btnNewButton.setContentAreaFilled(false);
+		contentPane.add(btnNewButton);
 	}
+	
 }
