@@ -1,5 +1,6 @@
 package Modelo;
 
+import java.security.Principal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,8 +10,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Controlador.Conexion;
+import Vista.Interfaz;
+import Vista.JPrincipal;
 
 public class Promotor {
+	Interfaz principal = new Interfaz();
 
 	public int idpromotores = 0;
 	public String tipodocumento = "";
@@ -251,6 +255,37 @@ Conexion conector = new Conexion();
 				JOptionPane.showConfirmDialog(null, "registro No." + idpromotores + "actualizado");
 			}
 
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+	}
+	
+	public void ControlAcceso( String user, String pass) {
+		Connection dbConnection = null;
+		PreparedStatement pst = null;
+		
+		String script = "SELECT * FROM tblpromotores WHERE numerodocumento = ? and contrasena = ?";
+		
+		try {
+			dbConnection = conector.conectarBD();
+			pst = dbConnection.prepareStatement(script);
+			//parametrizar los campos
+			pst.setString(1, user);
+			pst.setString(2, pass);
+			ResultSet rs = pst.executeQuery();
+		
+			
+			
+		
+			
+			if (rs.next()) {
+			principal.show();
+			
+			}else {
+				JOptionPane.showMessageDialog(null, "Acceso denegado");
+			}
+			
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
