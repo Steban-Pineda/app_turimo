@@ -129,15 +129,15 @@ public class Agencia {
 		String script = "DELETE FROM tblagencia WHERE idagencia = ?";
 
 		try {
-			dbConnection = conector.conectarBD();
-			pst = dbConnection.prepareStatement(script);
+			dbConnection = conector.conectarBD();//abre la conexion
+			pst = dbConnection.prepareStatement(script);//se abre el buffer
 			// parametrizar los campos
 			pst.setInt(1, idagencia);
 
 			int resp = JOptionPane.showConfirmDialog(null, "Desea eliminar el registro No. " + idagencia + "?");
 
 			if (resp == JOptionPane.OK_OPTION) {
-				// ejecutar la trx
+				// ejecutar la transaccion
 				pst.executeUpdate();
 				JOptionPane.showConfirmDialog(null, "Registro No." + idagencia + "eliminado");
 

@@ -93,7 +93,7 @@ public class Compañia {
 		Connection dbConnection = null;
 		PreparedStatement pst = null;
 		
-		String script = "INSERT INTO tblagencia(nombre, direccion, numerotelefonico, correoelectonico, web) values (?,?,?,?,?)";
+		String script = "INSERT INTO tblcompañia(nombre, direccion, numerotelefonico, correoelectonico, web) values (?,?,?,?,?)";
 		
 		try {
 			dbConnection = conector.conectarBD();
