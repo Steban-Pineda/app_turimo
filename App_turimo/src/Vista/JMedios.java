@@ -32,6 +32,7 @@ public class JMedios extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JButton btnconsultar;
 	private JButton btnNewButton;
+	private JButton btnAtras;
 	/**
 	 * Launch the application.
 	 */
@@ -87,7 +88,7 @@ public class JMedios extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(159, 241, 89, 23);
+		btnGuardar.setBounds(254, 257, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblIdtipomedio = new JLabel("idtipomedio");
@@ -145,6 +146,17 @@ public class JMedios extends JFrame {
 		btnNewButton.setBounds(480, 138, 46, 41);
 		btnNewButton.setContentAreaFilled(false);
 		contentPane.add(btnNewButton);
+		
+		btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Interfaz med = new Interfaz();
+				med.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(121, 257, 89, 23);
+		contentPane.add(btnAtras);
 	}
 
 }

@@ -133,7 +133,7 @@ public class JVehiculos extends JFrame {
 				veh.create(TxtPlaca.getText(),Integer.parseInt(TxtCapacidad.getText()),TxtModelo.getText(),TxtMarca.getText(),TxtEstadovehiculo.getText(),Integer.parseInt(txtidtipotransporte.getText()),Integer.parseInt(TxtNumeromotor.getText()),TxtCategoria.getText());
 			}
 		});
-		btnGuardar.setBounds(166, 488, 89, 23);
+		btnGuardar.setBounds(257, 487, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1_7_1 = new JLabel("idtipotransporte");
@@ -193,6 +193,16 @@ public class JVehiculos extends JFrame {
 		btnNewButton.setBounds(490, 153, 46, 34);
 		btnNewButton.setContentAreaFilled(false);
 		contentPane.add(btnNewButton);
+		
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz veh = new Interfaz();
+				veh.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(125, 487, 89, 23);
+		contentPane.add(btnAtras);
 	}
 
 }

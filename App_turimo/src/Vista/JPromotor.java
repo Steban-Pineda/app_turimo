@@ -152,7 +152,7 @@ public class JPromotor extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(191, 391, 89, 23);
+		btnGuardar.setBounds(229, 362, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblIdpromotores = new JLabel("idpromotores");
@@ -201,5 +201,15 @@ public class JPromotor extends JFrame {
 		btnNewButton.setBounds(456, 169, 54, 43);
 		btnNewButton.setContentAreaFilled(false);
 		contentPane.add(btnNewButton);
+		
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz pro = new Interfaz();
+				pro.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(111, 362, 89, 23);
+		contentPane.add(btnAtras);
 	}
 }

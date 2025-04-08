@@ -40,6 +40,7 @@ public class JPaquete extends JFrame {
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
 	private JButton btnNewButton;
+	private JButton btnAtras;
 	/**
 	 * Launch the application.
 	 */
@@ -78,7 +79,7 @@ public class JPaquete extends JFrame {
 			
 			}
 		});
-		btnGuardar.setBounds(185, 586, 89, 23);
+		btnGuardar.setBounds(263, 556, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblIdDestino = new JLabel("Id destino");
@@ -246,5 +247,15 @@ public class JPaquete extends JFrame {
 		btnNewButton.setBounds(497, 199, 58, 48);
 		btnNewButton.setContentAreaFilled(false);
 		contentPane.add(btnNewButton);
+		
+		btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz paq = new Interfaz();
+			paq.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(130, 556, 89, 23);
+		contentPane.add(btnAtras);
 	}
 }

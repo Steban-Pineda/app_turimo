@@ -30,6 +30,7 @@ public class JTipomedios extends JFrame {
 	private JButton btndelete;
 	Tipomedios cr = new Tipomedios();
 	private JLabel lblNewLabel_3;
+	private JButton btnAtras;
 	/**
 	 * Launch the application.
 	 */
@@ -90,7 +91,7 @@ public class JTipomedios extends JFrame {
 				
 			}
 		});
-		btnGuardar.setBounds(153, 195, 89, 23);
+		btnGuardar.setBounds(253, 198, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel = new JLabel("idtipomedio");
@@ -139,5 +140,15 @@ public class JTipomedios extends JFrame {
 		btnNewButton.setBounds(486, 120, 56, 39);
 		btnNewButton.setContentAreaFilled(false);
 		contentPane.add(btnNewButton);
+		
+		btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz tme = new Interfaz();
+				tme.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(130, 198, 89, 23);
+		contentPane.add(btnAtras);
 	}
 }

@@ -31,6 +31,7 @@ public class JTipoVehiculos extends JFrame {
 	private JLabel lblNewLabel_1;
 	private JButton btnconsultar;
 	private JButton btnNewButton;
+	private JButton btnAtras;
 	/**
 	 * Launch the application.
 	 */
@@ -90,7 +91,7 @@ public class JTipoVehiculos extends JFrame {
 				TxtObservacion.setText("");
 			}
 		});
-		btnGuardar.setBounds(219, 251, 89, 23);
+		btnGuardar.setBounds(227, 233, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		lblIdtipotransporte = new JLabel("idtipotransporte");
@@ -139,6 +140,16 @@ public class JTipoVehiculos extends JFrame {
 		btnNewButton.setBounds(472, 158, 54, 35);
 		btnNewButton.setContentAreaFilled(false);
 		contentPane.add(btnNewButton);
+		
+		btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz tvh = new Interfaz();
+				tvh.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(103, 233, 89, 23);
+		contentPane.add(btnAtras);
 	}
 	
 }

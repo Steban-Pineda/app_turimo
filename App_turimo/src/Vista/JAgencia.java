@@ -124,7 +124,7 @@ public class JAgencia extends JFrame {
 
 			}
 		});
-		btnGuardar.setBounds(164, 331, 89, 23);
+		btnGuardar.setBounds(258, 330, 89, 23);
 		contentPane.add(btnGuardar);
 
 		JLabel lblNewLabel_2_1_1_1 = new JLabel("idcompañia");
@@ -189,5 +189,15 @@ public class JAgencia extends JFrame {
 		btnNewButton.setIcon(new ImageIcon("C:\\Users\\APRENDIZ\\OneDrive\\172618_update_icon.png"));
 		btnNewButton.setBounds(397, 126, 34, 47);
 		contentPane.add(btnNewButton);
+		
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz ag = new Interfaz();
+				ag.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(134, 330, 89, 23);
+		contentPane.add(btnAtras);
 	}
 }

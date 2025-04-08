@@ -170,7 +170,7 @@ public class JClientes extends JFrame {
 				cli.create(TxtTipodocumento.getText(), TxtNumerodocumento.getText(), TxtNombres.getText(), TxtApellidos.getText(), TxtEPS.getText(), TxtAlergias.getText(),TxtFechanacimiento.getText(),TxtEstadocivil.getText(),TxtTelefono.getText(),TxtCorreo.getText(),TxtDireccion.getText());
 			}
 		});
-		btnGuardar.setBounds(149, 550, 89, 23);
+		btnGuardar.setBounds(279, 503, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_2 = new JLabel("Id cliente");
@@ -219,5 +219,15 @@ public class JClientes extends JFrame {
 		btnactializar.setBounds(477, 134, 48, 35);
 		btnactializar.setContentAreaFilled(false);
 		contentPane.add(btnactializar);
+		
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz cli = new Interfaz();
+				cli.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(124, 503, 89, 23);
+		contentPane.add(btnAtras);
 	}
 }

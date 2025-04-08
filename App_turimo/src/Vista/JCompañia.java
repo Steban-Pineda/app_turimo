@@ -35,6 +35,7 @@ public class JCompañia extends JFrame {
 	private JTextField txtconsultar;
 	private JButton btnconsultar;
 	private JButton btnNewButton;
+	private JButton btnAtras;
 	/**
 	 * Launch the application.
 	 */
@@ -116,7 +117,7 @@ public class JCompañia extends JFrame {
 			com.create(TxtNombre.getText(),TxtDireccion.getText(),TxtTelefono.getText(),TxtCorreo.getText(),TxtWeb.getText());
 			}
 		});
-		btnGuardar.setBounds(158, 291, 89, 23);
+		btnGuardar.setBounds(241, 312, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		lblNewLabel = new JLabel("idcompañia");
@@ -175,5 +176,15 @@ public class JCompañia extends JFrame {
 		btnNewButton.setBounds(427, 155, 53, 45);
 		btnNewButton.setContentAreaFilled(false);
 		contentPane.add(btnNewButton);
+		
+		btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz com = new Interfaz();
+				com.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(116, 312, 89, 23);
+		contentPane.add(btnAtras);
 	}
 }

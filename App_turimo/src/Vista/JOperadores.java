@@ -133,7 +133,7 @@ public class JOperadores extends JFrame {
 			
 			}
 		});
-		btnGuardar.setBounds(168, 339, 89, 23);
+		btnGuardar.setBounds(247, 337, 89, 23);
 		contentPane.add(btnGuardar);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1_1 = new JLabel("idtransporte");
@@ -191,6 +191,16 @@ public class JOperadores extends JFrame {
 		btnNewButton.setBounds(447, 149, 56, 44);
 		btnNewButton.setContentAreaFilled(false);
 		contentPane.add(btnNewButton);
+		
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Interfaz ope = new Interfaz();
+				ope.setVisible(true);
+			}
+		});
+		btnAtras.setBounds(127, 337, 89, 23);
+		contentPane.add(btnAtras);
 	}
 
 }
