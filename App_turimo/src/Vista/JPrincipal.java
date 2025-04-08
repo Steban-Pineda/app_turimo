@@ -76,6 +76,8 @@ public class JPrincipal extends JFrame {
 		btnacceder.setFont(new Font("Times New Roman", Font.PLAIN, 12));
 		btnacceder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Interfaz it =  new Interfaz();
+				it.setVisible(true);
 				login.ControlAcceso(txtuser.getText(), txtpass.getText());
 				
 			}
